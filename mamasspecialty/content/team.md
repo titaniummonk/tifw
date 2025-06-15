@@ -2,11 +2,5 @@
 title: "Our Team"
 url: "/team/"
 weight: 3
+layout: team
 ---
-## Meet Our A-Team
-
-{{ range .Site.Data.team }}
-### {{ .name }}
-- **Role**: {{ .role }}
-- **Description**: {{ .description }}
-{{ end }}

@@ -1,0 +1,30 @@
+{{ define "main" }}
+<body class="mamasspecialties">
+  <div class="mamasspecialty-container">
+    <div class="mamasspecialty-logo">
+      <img src="/img/mama_s.png" alt="Mama's Specialty Logo">
+    </div>
+    <div class="mamasspecialty-section mamasspecialty-team">
+      <h2>Meet our Team</h2>
+      <div class="mamasspecialty-team-members">
+        {{ range $index, $member := .Site.Data.team }}
+        <div class="mamasspecialty-team-member {{ if mod $index 2 }}right-column{{ else }}left-column{{ end }}">
+          {{ if eq .name "Mama (Wilma)" }}
+          <img src="/img/mom.jpg" alt="Mama (Wilma)">
+          {{ else if eq .name "Shark (Wesley)" }}
+          <a href="https://www.wesleysteehouwer.com">
+            <img src="/img/shark.jpg" alt="Shark (Wesley)">
+          </a>
+          {{ end }}
+          <div class="mamasspecialty-team-content"> <!-- Added wrapper div -->
+            <h3>{{ .name }}</h3>
+            <p>{{ .role }}</p>
+            <p>{{ .description }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</body>
+{{ end }}

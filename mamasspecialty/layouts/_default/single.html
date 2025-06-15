@@ -1,0 +1,126 @@
+{{ define "main" }}
+<body class="mamasspecialties">
+  <div class="mamasspecialty-container">
+    <div class="mamasspecialty-logo">
+      <img src="/img/mama_s.png" alt="Mama's Specialty Logo">
+    </div>
+    
+    <h1 class="mamasspecialty-title">{{ .Title }}</h1>
+    
+    <div class="mamasspecialty-hero">
+      <p class="mamasspecialty-subtitle">Discover our carefully crafted menu featuring the finest ingredients and authentic flavors.</p>
+    </div>
+    
+    <div class="mamasspecialty-section">
+      <div class="mamasspecialty-menu-filters">
+        <button class="mamasspecialty-button active" onclick="filterMenu('all')" id="filter-all">View All</button>
+        <button class="mamasspecialty-button" onclick="filterMenu('food')" id="filter-food">Food</button>
+        <button class="mamasspecialty-button" onclick="filterMenu('coffee')" id="filter-coffee">Coffee</button>
+        <button class="mamasspecialty-button" onclick="filterMenu('noncoffee')" id="filter-noncoffee">Non-Coffee</button>
+      </div>
+      
+      <div class="mamasspecialty-menu-grid">
+        {{ range .Site.Data.menu.food }}
+        <div class="mamasspecialty-menu-item food">
+          <div class="menu-item-header">
+            <h4 class="menu-item-name">{{ .name }}</h4>
+            <span class="menu-item-price">{{ .price }}฿</span>
+          </div>
+          <p class="menu-item-description">{{ .description }}</p>
+          <div class="menu-item-category">
+            <span class="category-badge food-badge">Food</span>
+          </div>
+        </div>
+        {{ end }}
+        
+        {{ range .Site.Data.menu.coffee }}
+        <div class="mamasspecialty-menu-item coffee">
+          <div class="menu-item-header">
+            <h4 class="menu-item-name">{{ .name }}</h4>
+            <span class="menu-item-price">{{ .price }}฿</span>
+          </div>
+          <p class="menu-item-description">{{ .description }}</p>
+          <div class="menu-item-category">
+            <span class="category-badge coffee-badge">Coffee</span>
+          </div>
+        </div>
+        {{ end }}
+        
+        {{ range .Site.Data.menu.noncoffee }}
+        <div class="mamasspecialty-menu-item noncoffee">
+          <div class="menu-item-header">
+            <h4 class="menu-item-name">{{ .name }}</h4>
+            <span class="menu-item-price">{{ .price }}฿</span>
+          </div>
+          <p class="menu-item-description">{{ .description }}</p>
+          <div class="menu-item-category">
+            <span class="category-badge noncoffee-badge">Non-Coffee</span>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    
+    <!-- Call to Action Section -->
+    <div class="mamasspecialty-section mamasspecialty-cta">
+      <h2>Ready to Visit?</h2>
+      <p>Come experience our cozy atmosphere and taste the difference quality makes.</p>
+      <a href="/" class="mamasspecialty-button">Back to Home</a>
+    </div>
+  </div>
+  
+  <script>
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.mamasspecialty-menu-item');
+      const buttons = document.querySelectorAll('.mamasspecialty-menu-filters .mamasspecialty-button');
+      
+      // Remove active class from all buttons
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      document.getElementById('filter-' + category).classList.add('active');
+      
+      // Filter items with smooth animation
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          if (item.classList.contains(category)) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        }
+      });
+    }
+    
+    // Load with all items visible and add smooth entrance animation
+    window.onload = function() { 
+      filterMenu('all');
+      
+      // Stagger animation for initial load
+      const items = document.querySelectorAll('.mamasspecialty-menu-item');
+      items.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    };
+  </script>
+</body>
+{{ end }}
