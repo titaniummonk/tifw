@@ -1,0 +1,82 @@
+{{ define "main" }}
+<body class="mamasspecialties">
+  <div class="mamasspecialty-container">
+    <div class="mamasspecialty-logo">
+      <img src="/img/mama_s.png" alt="Mama's Specialty Logo">
+    </div>
+    <h1 class="mamasspecialty-title">{{ .Title }}</h1>
+    <div class="mamasspecialty-hero">
+      <p class="mamasspecialty-subtitle">Delicious Food x Ultimate Barista Craft - Where everything feels like home.</p>
+      <a href="#menu" class="mamasspecialty-button">Check Menu</a>
+    </div>
+    <section class="mamasspecialty-story">
+      <h2>Our Story</h2>
+      <p>{{ .Content }}</p>
+    </section>
+    <section class="mamasspecialty-team" id="team">
+      <h2>Meet our Team</h2>
+      <div class="mamasspecialty-team-members">
+        {{ range $index, $member := .Site.Data.team }}
+        <div class="mamasspecialty-team-member {{ if mod $index 2 }}right-column{{ else }}left-column{{ end }}">
+          {{ if eq .name "Mama (Wilma)" }}
+          <img src="/img/mom.jpg" alt="Mama (Wilma)">
+          {{ else if eq .name "Shark (Wesley)" }}
+          <a href="https://www.wesleysteehouwer.com">
+            <img src="/img/shark.jpg" alt="Shark (Wesley)">
+          </a>
+          {{ end }}
+          <h3>{{ .name }}</h3>
+          <p>{{ .role }}</p>
+          <p>{{ .description }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    <section class="mamasspecialty-menu" id="menu">
+      <h2 align="center">Menu</h2>
+      <div class="mamasspecialty-menu-grid">
+        <div class="mamasspecialty-menu-column">
+          <h3>Homemade Food</h3>
+          {{ range .Site.Data.menu.food }}
+          <div class="mamasspecialty-menu-item">
+            <h4>{{ .name }} <span>{{ .price }}฿</span></h4>
+            <p>{{ .description }}</p>
+          </div>
+          {{ end }}
+        </div>
+        <div class="mamasspecialty-menu-column">
+          <h3>Specialty Coffee</h3>
+          {{ range .Site.Data.menu.coffee }}
+          <div class="mamasspecialty-menu-item">
+            <h4>{{ .name }} <span>{{ .price }}฿</span></h4>
+            <p>{{ .description }}</p>
+          </div>
+          {{ end }}
+        </div>
+        <div class="mamasspecialty-menu-column">
+          <h3>Non-Coffee</h3>
+          {{ range .Site.Data.menu.noncoffee }}
+          <div class="mamasspecialty-menu-item">
+            <h4>{{ .name }} <span>{{ .price }}฿</span></h4>
+            <p>{{ .description }}</p>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+    <section class="mamasspecialty-reviews">
+      <h2>Customer Reviews</h2>
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-74b412d5-0e26-4d71-aec5-a3dc84d4a1ed" data-elfsight-app-lazy></div>
+    </section>
+    <section class="mamasspecialty-map">
+      <h2>Find Us on Map</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.515683678225!2d100.06572307586335!3d9.470182791266373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMjgnMTIuMSJOIDEwMMKwMDQnNTAuMCJF!5e0!3m2!1sen!2sth!4v1623456789" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    <section class="mamasspecialty-contact">
+      <h2>Where to find us?</h2>
+      <p>84/62 Had Lamai 1, Moo 3, Maret, Ko Samui</p>
+    </section>
+  </div>
+</body>
+{{ end }}
