@@ -1,0 +1,4 @@
+[build]
+  base = "charoenwatthana/"
+  command = "hugo --gc --minify" 
+  publish = "public"
