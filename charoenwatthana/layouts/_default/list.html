@@ -1,0 +1,24 @@
+{{ define "main" }}
+<body class="charoenwatthana">
+  <div class="charoenwatthana-container">
+    <header class="charoenwatthana-header">
+      <h1 class="charoenwatthana-title">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+        <p class="charoenwatthana-subtitle">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <section class="charoenwatthana-list">
+      {{ range .Pages }}
+        <div class="charoenwatthana-section">
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Params.description }}
+            <p>{{ . | safeHTML }}</p>
+          {{ end }}
+          {{ .Content }}
+        </div>
+      {{ end }}
+    </section>
+  </div>
+</body>
+{{ end }}
