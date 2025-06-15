@@ -1,10 +1,104 @@
 {{ define "main" }}
 <body class="charoenwatthana">
+  <div class="bg-elements">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <div class="theme-toggle" onclick="toggleTheme()"></div>
+
   <div class="charoenwatthana-container">
-    <div class="charoenwatthana-section">
-      <h1>{{ .Title }}</h1>
-      {{ .Content }}
+    <div class="charoenwatthana-section single-content fade-in">
+      <h1 class="single-title">{{ .Title }}</h1>
+      <div class="content-wrapper">
+        {{ .Content }}
+      </div>
+      
+      {{ if .Params.tags }}
+        <div class="tags-section">
+          {{ range .Params.tags }}
+            <span class="tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+      
+      <div class="navigation-section">
+        {{ with .PrevInSection }}
+          <a href="{{ .RelPermalink }}" class="nav-link prev-link">← {{ .Title }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+          <a href="{{ .RelPermalink }}" class="nav-link next-link">{{ .Title }} →</a>
+        {{ end }}
+      </div>
     </div>
   </div>
+
+  <script>
+    // Scroll animations
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Theme toggle functionality
+    function toggleTheme() {
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+      
+      toggle.classList.toggle('active');
+      
+      if (toggle.classList.contains('active')) {
+        body.style.filter = 'invert(1) hue-rotate(180deg)';
+      } else {
+        body.style.filter = 'none';
+      }
+    }
+
+    // Reading progress indicator
+    function updateReadingProgress() {
+      const article = document.querySelector('.content-wrapper');
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+      
+      // Create progress bar if it doesn't exist
+      let progressBar = document.querySelector('.reading-progress');
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.appendChild(progressBar);
+      }
+      
+      progressBar.style.width = (scrollPercent * 100) + '%';
+    }
+
+    // Initialize animations and features
+    window.addEventListener('load', () => {
+      observeElements();
+    });
+
+    window.addEventListener('scroll', updateReadingProgress);
+
+    // Enhanced typography animations
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(heading => {
+      heading.addEventListener('mouseenter', () => {
+        heading.style.transform = 'translateX(10px)';
+      });
+      
+      heading.addEventListener('mouseleave', () => {
+        heading.style.transform = 'translateX(0)';
+      });
+    });
+  </script>
 </body>
 {{ end }}
