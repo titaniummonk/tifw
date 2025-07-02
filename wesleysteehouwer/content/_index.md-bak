@@ -1,0 +1,25 @@
+---
+title: "Wesley Steehouwer - The Titanium Monk"
+layout: "single"
+description: "Visionary AI Engineer and the World's First 3D-Printed Titanium Monk"
+---
+
+<div class="hero">
+  <h2>Conjuring the Future of AI</h2>
+  <p class="subtitle">The Titanium Monk</p>
+  <p>Welcome to the digital domain of <strong>Wesley Steehouwer</strong>, the <em>Titanium Monk</em>. As a visionary AI engineer and infrastructure architect, I blend 20+ years of technical expertise with a unique perspective on human-AI collaboration. My journey—from a life-changing transformation to becoming the world's first 3D-printed titanium monk—fuels my mission to build revolutionary AI solutions that shape the future.</p>
+  <a href="/contact/" class="btn btn-outline">Get in Touch</a>
+</div>
+
+{{< titanium-story >}}
+## The Titanium Transformation
+
+Following a life-changing accident in 2023, I became the world's first 3D-printed titanium monk in February 2024—a living embodiment of **resilience, reinvention, and purpose-fueled innovation**. This transformation represents more than personal recovery; it symbolizes the fusion of human consciousness with cutting-edge technology, making me uniquely positioned to bridge the gap between **human intelligence and artificial intelligence**.
+{{< /titanium-story >}}
+
+<div class="content-section glass-card">
+  <h2 class="section-title">Why the Titanium Monk?</h2>
+  {{< titanium-story >}}
+  In 2024, I became the world's first 3D-printed titanium monk after a transformative accident. This fusion of human resilience and cutting-edge technology drives my passion for AI innovation, making me a unique leader in the field.
+  {{< /titanium-story >}}
+</div>

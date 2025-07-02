@@ -1,0 +1,135 @@
+{{ define "main" }}
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <div class="logo-circle">
+          <div class="monk-silhouette"></div>
+        </div>
+        <div class="logo-text">
+          <h1>Wesley Steehouwer</h1>
+          <div class="subtitle">The Titanium Monk</div>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>{{ .Site.Params.hero.title | default "Wesley Steehouwer" }}</h2>
+      <div class="subtitle">{{ .Site.Params.hero.subtitle | default "The Titanium Monk" }}</div>
+      <p>{{ .Site.Params.hero.description | default "Navigating the intersection of ancient wisdom and modern technology, building bridges between East and West, tradition and innovation." }}</p>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section">
+      <h2 class="transformation-title">The Path of Transformation</h2>
+      <div class="transformation-content">
+        <p>Every journey begins with a single step into the unknown. Mine has taken me from the structured world of technology to the contemplative realm of monastic life in Thailand, and back again—forever changed, forever evolving.</p>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+      <div class="content-card">
+        <h4>🦈 Coffee with Shark</h4>
+        <p>Vlogs and blogs about life in Thailand - exploring the cultural depths, personal insights, and the unique perspective of a Western monk navigating the Land of Smiles.</p>
+      </div>
+      
+      <div class="content-card">
+        <h4>🏛️ Without Chaos Club</h4>
+        <p>Ideas about investing and building wealth through structured thinking. Join a community focused on intelligent investment strategies and collaborative financial growth.</p>
+      </div>
+    </div>
+
+    <!-- Philosophy Container -->
+    <section class="philosophy-container">
+      <h2 class="section-title">Philosophy & Approach</h2>
+      
+      <div class="philosophy-section">
+        <h3 class="philosophy-title">🧘 Mindful Technology</h3>
+        <div class="philosophy-content">
+          <p>Technology should serve humanity, not enslave it. Through mindful development and conscious implementation, we can create tools that enhance rather than diminish our human experience.</p>
+          <p>Drawing from Buddhist principles of right action and intention, every line of code becomes an opportunity for positive impact.</p>
+        </div>
+      </div>
+
+      <div class="philosophy-section">
+        <h3 class="philosophy-title">🌉 Bridging Worlds</h3>
+        <div class="philosophy-content">
+          <p>East meets West in more than just geography. Ancient wisdom traditions offer profound insights for modern challenges, while cutting-edge technology can amplify timeless truths.</p>
+          <p>My work focuses on finding these intersection points and creating meaningful connections across cultures, disciplines, and ways of thinking.</p>
+        </div>
+      </div>
+
+      <div class="philosophy-section">
+        <h3 class="philosophy-title">💎 Sustainable Growth</h3>
+        <div class="philosophy-content">
+          <p>True wealth encompasses more than financial gain. It includes mental clarity, spiritual development, community impact, and environmental responsibility.</p>
+          <p>Through the <a href="https://www.charoenwatthana.org" class="foundation-link">Charoen Watthana Initiative</a>, we explore how conscious capitalism can serve broader purposes beyond profit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Involved Section -->
+    <section class="content-section">
+      <h2 class="section-title">Currently Involved In</h2>
+      <div class="content-grid">
+        <div class="content-card">
+          <h4>⚡ AxonProto</h4>
+          <p>An advanced technologies firm building adaptive infrastructure for an AI-native world. Focusing on the intersection of artificial intelligence and network engineering.</p>
+          <p><a href="https://www.axonproto.com" target="_blank" style="color: var(--titanium-orange); text-decoration: none;">axonproto.com</a></p>
+        </div>
+        
+        <div class="content-card">
+          <h4>🏛️ Charoen Watthana Initiative</h4>
+          <p>An aspiring not-for-profit Foundation focused on community development and social impact in Thailand and beyond.</p>
+          <p><a href="https://www.charoenwatthana.org" target="_blank" style="color: var(--titanium-orange); text-decoration: none;">charoenwatthana.org</a></p>
+        </div>
+        
+        <div class="content-card">
+          <h4>🌐 Farang Holdings</h4>
+          <p>Strategic investment and development initiatives bridging international opportunities between East and West.</p>
+          <p><a href="https://www.farangholdings.org" target="_blank" style="color: var(--titanium-orange); text-decoration: none;">farangholdings.org</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="content-section">
+      <h2 class="section-title">Work & Purpose</h2>
+      <div class="content-grid">
+        <div class="content-card">
+          <h4>🌅 Day Job</h4>
+          <p>Seeking something that makes me enthusiastic in either AI or InterNetwork Engineering - exploring the cutting edge of technology and human connection.</p>
+        </div>
+        
+        <div class="content-card">
+          <h4>🌙 Night Job</h4>
+          <p>The projects listed under "Involved In" - building the future through strategic investments, technology development, and social impact initiatives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h3>Let's Connect</h3>
+      <p>Whether you're interested in technology, philosophy, investing, or just want to share a virtual coffee, I'd love to hear from you.</p>
+      <a href="/contact" class="btn">Get In Touch</a>
+      <a href="/blog" class="btn btn-outline">Read My Thoughts</a>
+    </section>
+  </div>
+</main>
+{{ end }}

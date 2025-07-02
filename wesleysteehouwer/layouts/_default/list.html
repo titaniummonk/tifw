@@ -1,0 +1,59 @@
+{{ define "main" }}
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <div class="logo-circle">
+          <div class="monk-silhouette"></div>
+        </div>
+        <div class="logo-text">
+          <h1>Wesley Steehouwer</h1>
+          <div class="subtitle">The Titanium Monk</div>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog" {{ if eq .Type "posts" }}class="active"{{ end }}>Blog</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero">
+      <h2>{{ .Title }}</h2>
+      {{ with .Params.subtitle }}<div class="subtitle">{{ . }}</div>{{ end }}
+      {{ if .Content }}
+        <div style="max-width: 800px; margin: 2rem auto;">
+          {{ .Content }}
+        </div>
+      {{ end }}
+    </section>
+
+    {{ if .Pages }}
+    <section class="content-section">
+      {{ range .Pages }}
+      <article class="blog-article">
+        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+        {{ with .Date }}<div class="blog-date">{{ .Format "January 2, 2006" }}</div>{{ end }}
+        <div class="blog-excerpt">
+          {{ if .Params.excerpt }}
+            {{ .Params.excerpt }}
+          {{ else }}
+            {{ .Summary }}
+          {{ end }}
+        </div>
+        <a href="{{ .Permalink }}" class="read-more">Read More</a>
+      </article>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

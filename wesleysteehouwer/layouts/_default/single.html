@@ -1,0 +1,74 @@
+{{ define "main" }}
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <div class="logo-circle">
+          <div class="monk-silhouette"></div>
+        </div>
+        <div class="logo-text">
+          <h1>Wesley Steehouwer</h1>
+          <div class="subtitle">The Titanium Monk</div>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    {{ if eq .Type "resume" }}
+      <div class="resume-header">
+        <h1 class="resume-title">{{ .Params.name | upper | default .Title }}</h1>
+        {{ with .Params.nickname }}<h3>{{ . }}</h3>{{ end }}
+        {{ with .Params.tagline }}<p>"{{ . }}"</p>{{ end }}
+        {{ if or .Params.location .Params.phone .Params.email }}
+        <div class="contact-info">
+          {{ with .Params.location }}<div class="contact-item">📍 {{ . }}</div>{{ end }}
+          {{ with .Params.phone }}<div class="contact-item">📞 {{ . }}</div>{{ end }}
+          {{ with .Params.email }}<div class="contact-item">✉ <a href="mailto:{{ . }}">{{ . }}</a></div>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      <section class="hero">
+        <h2>{{ .Title }}</h2>
+        {{ with .Params.subtitle }}<div class="subtitle">{{ . }}</div>{{ end }}
+        {{ with .Date }}<p class="blog-date">{{ .Format "January 2, 2006" }}</p>{{ end }}
+      </section>
+    {{ end }}
+
+    <div class="article-content">
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </div>
+
+    {{ if and (eq .Type "posts") (or .PrevInSection .NextInSection) }}
+    <nav class="post-navigation glass-card" style="margin-top: 3rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        {{ with .PrevInSection }}
+        <a href="{{ .Permalink }}" style="color: var(--titanium-orange); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+          ← {{ .Title }}
+        </a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a href="{{ .Permalink }}" style="color: var(--titanium-orange); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-left: auto;">
+          {{ .Title }} →
+        </a>
+        {{ end }}
+      </div>
+    </nav>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

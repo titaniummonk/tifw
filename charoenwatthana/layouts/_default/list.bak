@@ -1,24 +1,116 @@
 {{ define "main" }}
 <body class="charoenwatthana">
+  <div class="bg-elements">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <div class="theme-toggle" onclick="toggleTheme()"></div>
+
   <div class="charoenwatthana-container">
     <header class="charoenwatthana-header">
       <h1 class="charoenwatthana-title">{{ .Title }}</h1>
       {{ with .Params.subtitle }}
         <p class="charoenwatthana-subtitle">{{ . }}</p>
       {{ end }}
+      <a href="#explore" class="cta-button">Explore Content</a>
     </header>
 
-    <section class="charoenwatthana-list">
+    <section class="charoenwatthana-list" id="explore">
       {{ range .Pages }}
-        <div class="charoenwatthana-section">
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <div class="charoenwatthana-section fade-in">
+          <h2><a href="{{ .RelPermalink }}" class="section-link">{{ .Title }}</a></h2>
           {{ with .Params.description }}
-            <p>{{ . | safeHTML }}</p>
+            <p class="section-description">{{ . | safeHTML }}</p>
           {{ end }}
-          {{ .Content }}
+          <div class="section-content">
+            {{ .Content }}
+          </div>
         </div>
       {{ end }}
     </section>
   </div>
+
+  <script>
+    // Scroll animations
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Theme toggle functionality
+    function toggleTheme() {
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+      
+      toggle.classList.toggle('active');
+      
+      if (toggle.classList.contains('active')) {
+        body.style.filter = 'invert(1) hue-rotate(180deg)';
+      } else {
+        body.style.filter = 'none';
+      }
+    }
+
+    // Particle effects on hover
+    function createParticle(x, y) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      document.body.appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 3000);
+    }
+
+    // Interactive section effects
+    document.querySelectorAll('.charoenwatthana-section').forEach(section => {
+      section.addEventListener('mouseenter', (e) => {
+        const rect = section.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Create multiple particles
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            createParticle(rect.left + x, rect.top + y);
+          }, i * 100);
+        }
+      });
+    });
+
+    // Smooth scrolling for CTA button
+    document.querySelector('.cta-button').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#explore').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    // Initialize animations
+    window.addEventListener('load', () => {
+      observeElements();
+    });
+
+    // Add dynamic title animation
+    setInterval(() => {
+      const title = document.querySelector('.charoenwatthana-title');
+      if (title) {
+        title.style.transform = `perspective(1000px) rotateX(${10 + Math.sin(Date.now() / 1000) * 5}deg)`;
+      }
+    }, 50);
+  </script>
 </body>
 {{ end }}
