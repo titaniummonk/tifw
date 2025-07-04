@@ -12,7 +12,7 @@ name: "Wesley Steehouwer"
 location: "Ko Samui, Thailand"
 phone: "(+66) 66-008-1345"
 email: "wesleysteehouwer@icloud.com"
-current_focus: "Available for international projects and open to relocation opportunities. Dutch passport provides excellent mobility for global consulting engagements. Exploring opportunities to apply decades of technical expertise in healthcare technology solutions while maintaining active involvement in networking and automation consulting."
+current_focus: "Available for international projects and open to relocation opportunities. Dutch passport provides excellent mobility for global consulting engagements. Exploring opportunities to apply decades of expertise."
 
 # SEO and Social
 keywords: ["Network Engineer", "Automation Specialist", "Infrastructure Architect", "Technical Consultant", "Networking Protocols"]

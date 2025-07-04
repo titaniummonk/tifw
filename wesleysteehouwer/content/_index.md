@@ -1,64 +1,92 @@
 ---
 title: "Wesley Steehouwer - The Titanium Monk"
 layout: "single"
-description: "Visionary Engineer, Revolutionary Investor, and the World's First 3D-Printed Titanium Monk"
+description: "Technical Specialist, Infrastructure Architect, and Revolutionary Investment Strategist"
 ---
 <div class="hero">
-  <h1>Conjuring the Future of AI</h1>
+  <h1>Engineering the Future of Technology & Investment</h1>
   <p class="subtitle">The Titanium Monk</p>
-  <p>Welcome to the digital domain of <strong>Wesley Steehouwer</strong>, the <em>Titanium Monk</em>. As a visionary engineer, infrastructure architect, and revolutionary investor, I blend 20+ years of technical expertise with a unique perspective on human-AI collaboration and breakthrough investment strategies. My journey—from a life-changing transformation to becoming the world's first 3D-printed titanium monk—fuels my mission to build revolutionary solutions, execute game-changing investments, and create lasting positive impact through technology and philanthropy.</p>
-  <a href="/contact/" class="btn btn-outline">Get in Touch</a>
+  <p>Welcome to the professional domain of <strong>Wesley Steehouwer</strong>, a solutions-oriented technical specialist with 20+ years of networking and automation expertise. Following a transformative journey that led to becoming the world's first 3D-printed titanium monk in February 2025, I now bridge technical excellence with revolutionary investment strategies through strategic leadership at <a href="https://www.farangholdings.org">Farang Holdings</a> and social impact initiatives via the <a href="https://www.charoenwatthana.org">Charoen Watthana Foundation</a>.</p>
+  <a href="/contact/" class="btn btn-outline">Connect for Opportunities</a>
 </div>
+
 {{< titanium-story >}}
-## The Titanium Transformation
-Following a life-changing accident in 2023, I became the world's first 3D-printed titanium monk in February 2025. This transformation represents:
-- A living embodiment of **resilience, reinvention, and purpose-fueled innovation**.
-- A fusion of human consciousness with cutting-edge technology.
-- A unique position to bridge **human intelligence and artificial intelligence**.
-- Application of this mindset to revolutionary investment strategies and social impact initiatives.
+## Professional Transformation & The Titanium Monk Identity
+
+Following a life-changing accident in 2023 and subsequent transformation in February 2025, my unique perspective as the world's first 3D-printed titanium monk represents more than personal resilience—it embodies a strategic approach to:
+
+- **Technical Innovation**: Leveraging 20+ years of networking and automation expertise to solve complex infrastructure challenges
+- **Strategic Investment**: Developing revolutionary methodologies that combine aggressive execution with long-term value creation
+- **Social Impact**: Establishing sustainable foundations for technological advancement and education across Southeast Asia
 {{< /titanium-story >}}
-
 <div class="content-section glass-card">
-  <h2 class="section-title">The Titanium Monk Philosophy</h2>
+  <h2 class="section-title">Core Competencies & Strategic Focus</h2>
   
-  ### AI Innovation
-  <!-- Add AI-themed icon here (e.g., <i class="fas fa-brain"></i>) -->
-  In February 2025, after a transformative accident, I became the world's first 3D-printed titanium monk. This fusion drives my passion for AI innovation, positioning me as a leader in building systems that understand the intersection of human consciousness and artificial intelligence.
+  ### Technical Excellence & AI Integration
+  With expert-level proficiency as an InternetWorking Engineer for big Tier 1 networks, as an Automation Solution Architect I crafted modern automation tools with AI integrations. I deliver scalable solutions for enterprise and service provider networks. My transformation experience provides unique insights into human-AI collaboration and next-generation infrastructure design.
 
-  ### Revolutionary Investment Strategy
-  <!-- Add investment-themed icon here (e.g., <i class="fas fa-chart-line"></i>) -->
-  I've developed a unique investment philosophy that combines:
-  - <strong>Dan Peña's high-stakes, no-nonsense approach</strong>.
-  - <strong>Warren Buffett's value-driven, long-term thinking</strong>.
-  This hybrid methodology identifies undervalued opportunities with aggressive execution. The Titanium Monk approach focuses on financial returns and backing transformational technologies reshaping industries.
+  ### Revolutionary Investment Philosophy - Without Chaos Club
+  Through the Without Chaos Club, I'm modernizing investing for everyone by combining:
+  - **Charlie Munger:** Multidisciplinary thinking and mental models
+  - **Dan Peña:** Aggressive deal structuring and quantum leap mentality
+  - **Li Lu:** Cultural bridge-building and emerging market mastery
+  - **Mohnish Pabrai:** Global opportunity hunting and emerging market expertise
+  - **Nick Sleep:** Patient, long-term compounding focus
+  - **Warren Buffett:** Value investing and capital allocation mastery
+  - **Technical due diligence** leveraging decades of infrastructure and automation expertise
+  
+  This hybrid approach identifies transformational opportunities in technology sectors, targeting 10-50x returns over 10+ years. **Investment Disclaimer**: All investments carry risk, and capital can be lost. Past performance does not guarantee future results.
 
-  ### Social Impact Through Technology
-  <!-- Add globe/community icon here (e.g., <i class="fas fa-globe"></i>) -->
-  I'm establishing the <strong>Thai Foundation Charoen Watthana</strong> to create sustainable impact through:
-  - Bridging the digital divide.
-  - Supporting AI education.
-  - Fostering innovation in Southeast Asia.
-  This balances technological advancement with human wisdom.
+  ### Social Impact Through Technology Leadership
+  As founder of the <a href="https://www.charoenwatthana.org">Charoen Watthana Foundation</a>, I'm creating sustainable impact through:
+  - Digital infrastructure development and education programs
+  - AI and automation training initiatives across Southeast Asia
+  - Bridging the digital divide through practical technology solutions
+  - Supporting innovation ecosystems in emerging markets
 </div>
+
 <div class="content-grid">
   <div class="content-card">
-    <h4>🤖 AI Engineering Excellence</h4>
-    <p>Building next-generation AI infrastructure and applications that push the boundaries of human-AI collaboration, leveraging my unique perspective as both technologist and transformed human.</p>
+    <h4>🔧 Technical Solutions Architecture</h4>
+    <p>20+ years delivering networking and automation solutions for AT&T, Deutsche Glasfaser, KPN, and NTT. Expert in MPLS, BGP, automation, and Infrastructure as Code with proven track record of reducing operational costs by 10-15% through strategic optimization.</p>
   </div>
   
   <div class="content-card">
-    <h4>📈 Hybrid Investment Philosophy</h4>
-    <p>Combining Dan Peña's aggressive deal-making with Warren Buffett's value investing principles to create a revolutionary approach that identifies and capitalizes on transformational opportunities.</p>
+    <h4>📊 Strategic Investment & Business Leadership</h4>
+    <p>Founder and CEO of <a href="https://www.farangholdings.org">Farang Holdings</a> with successful track record scaling operations across multiple locations. Through Without Chaos Club, developing modern investment strategies targeting 10-50x returns in technology sectors over 10+ year horizons.</p>
   </div>
   
   <div class="content-card">
-    <h4>🌏 Foundation for Change</h4>
-    <p>Establishing Charoen Watthana Foundation to drive sustainable impact through technology education, digital inclusion, and innovation support across Southeast Asia.</p>
+    <h4>🌍 Foundation for Sustainable Impact</h4>
+    <p>Establishing <a href="https://www.charoenwatthana.org">Charoen Watthana Foundation</a> to drive technological advancement and education across Southeast Asia, focusing on practical solutions that bridge the digital divide and support innovation ecosystems.</p>
   </div>
 </div>
 
+{{< titanium-story >}}
+## Key Achievements & Professional Highlights
+
+- **Technical Leadership**: Managed 25 employees across multiple consulting projects, delivering solutions for Fortune 500 clients
+- **Business Operations**: Founded and scaled Farang Holdings with 5-person team across four locations, achieving 20% year-over-year revenue growth
+- **Infrastructure Excellence**: Implemented NSP TSC solutions reducing deployment time by 40% for enterprise clients
+- **Training & Development**: Completed 1200+ hours of advanced technical training across networking, automation, and emerging technologies
+- **Healthcare Experience**: 5+ years volunteer ambulance work with Ko Samui Rescue Foundation, handling 100+ cases annually
+
+## Professional Availability & Global Mobility
+
+Currently based in Thailand, with Dutch passport providing excellent global mobility for international consulting engagements. Available for strategic projects in:
+
+- **Technical Consulting**: Network architecture, automation, and infrastructure optimization
+- **Investment Strategy**: Technology sector analysis and due diligence
+- **Foundation Leadership**: Social impact initiatives and technology education programs
+{{< /titanium-story >}}
+
 <div class="cta-section">
-  <h3>Ready to Transform the Future Together?</h3>
-  <p>Whether you're interested in AI innovation, revolutionary investment opportunities, or joining our mission for positive technological impact, let's connect and explore how we can shape tomorrow's world.</p>
+  <h3>Ready to Collaborate on Transformational Projects?</h3>
+  <p>Whether you're seeking technical expertise for complex infrastructure challenges, strategic investment partnerships, or social impact initiatives, let's explore how decades of experience and a unique perspective can drive exceptional results for your organization.</p>
   <a href="/contact/" class="btn">Start the Conversation</a>
 </div>
+
+---
+<footer>
+Investment Disclaimer: All investments carry inherent risks including the potential loss of principal. The Without Chaos Club investment philosophy targets 10-50x returns over 10+ year investment horizons, but past performance does not guarantee future results. Investors should carefully consider their risk tolerance and investment objectives before participating in any investment strategy.
+</footer>
