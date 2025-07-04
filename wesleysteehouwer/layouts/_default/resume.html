@@ -1,276 +1,306 @@
 {{ define "main" }}
+<head>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+</head>
 <div class="container">
-    <!-- Header with Zen Circle Logo -->
-    <header class="header">
-        <div class="logo-container">
-            <div class="zen-circle">
-                <div class="monk-silhouette"></div>
-            </div>
-        </div>
-        <div class="name-title">
-            <h1 class="name">{{ .Params.name | upper }}</h1>
-            <p class="subtitle">{{ .Params.nickname }}</p>
-            <p class="tagline">"{{ .Params.tagline }}"</p>
-        </div>
-        <div class="contact-info">
-            <div class="contact-item">📍 {{ .Params.location }}</div>
-            <div class="contact-item">📞 {{ .Params.phone }}</div>
-            <div class="contact-item">✉ {{ .Params.email }}</div>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                {{ if .Site.Params.logo }}
+                <img src="{{ .Site.Params.logo }}" alt="Wesley Steehouwer Logo">
+                {{ else }}
+                <span>{{ substr .Site.Title 0 1 }}</span>
+                {{ end }}
+                <div class="logo-text">
+                    <h1>Wesley Steehouwer</h1>
+                    <span class="subtitle">{{ .Site.Params.tagline | default "The Titanium Monk" }}</span>
+                </div>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about" aria-label="Go to About section">About</a></li>
+                    <li><a href="#skills" aria-label="Go to Skills section">Skills</a></li>
+                    <li><a href="#experience" aria-label="Go to Experience section">Experience</a></li>
+                    <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <article class="article-content">
-        <div class="content">
-            {{ .Content }}
+    <main>
+        {{ if eq .Type "resume" }}
+        <div class="hero">
+            <h1>{{ .Params.name | default .Title }}</h1>
+            <p class="subtitle">{{ .Site.Params.tagline | default "The Titanium Monk" }}</p>
+            <p class="value-proposition">Empowering businesses with robust networking, automation, and AI solutions for over two decades.</p>
+            {{ if .Params.location }}
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ .Params.location }}</span>
+            </div>
+            {{ end }}
+            <div class="hero-contact">
+                {{ if .Params.email }}
+                <a href="mailto:{{ .Params.email }}" class="btn">Email Me</a>
+                {{ end }}
+                {{ if .Params.phone }}
+                <a href="tel:{{ .Params.phone }}" class="btn">Call Me</a>
+                {{ end }}
+                <button onclick="window.print()" class="btn">Download PDF</button>
+            </div>
         </div>
-    </article>
+
+        {{ if .Params.testimonials }}
+        <section id="testimonials" class="titanium-story">
+            <h2>Client Testimonials</h2>
+            <div class="testimonial-carousel">
+                <div class="carousel-container">
+                    {{ range $index, $testimonial := .Params.testimonials }}
+                    <div class="testimonial-slide {{ if eq $index 0 }}active{{ end }}">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+                                <p class="quote-text">{{ $testimonial.quote }}</p>
+                            </div>
+                            {{ if $testimonial.context }}
+                            <div class="testimonial-context">
+                                <p><strong>Context:</strong> {{ $testimonial.context }}</p>
+                            </div>
+                            {{ end }}
+                            {{ if $testimonial.strengths }}
+                            <div class="testimonial-strengths">
+                                <p><strong>Key Strengths:</strong></p>
+                                <div class="strength-tags">
+                                    {{ range $testimonial.strengths }}
+                                    <span class="strength-tag">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            {{ end }}
+                            <div class="testimonial-author">
+                                <p>{{ $testimonial.author }}</p>
+                                {{ if $testimonial.date }}
+                                <span class="testimonial-date">{{ $testimonial.date }}</span>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ if gt (len .Params.testimonials) 1 }}
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="changeSlide(-1)" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-indicators">
+                        {{ range $index, $_ := .Params.testimonials }}
+                        <span class="indicator {{ if eq $index 0 }}active{{ end }}" onclick="currentSlide({{ $index }})" aria-label="Go to testimonial {{ add $index 1 }}"></span>
+                        {{ end }}
+                    </div>
+                    <button class="carousel-btn" onclick="changeSlide(1)" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+
+        <section id="about" class="titanium-story">
+            <h2>Professional Summary</h2>
+            {{ .Content | markdownify }}
+        </section>
+
+        {{ if .Params.experience }}
+        <!-- Debug: Length of experience array: {{ len .Params.experience }} -->
+        <section id="experience" class="titanium-story">
+            <h2>Professional Experience</h2>
+            {{ range .Params.experience }}
+            <div class="content-section glass-card {{ if eq .title "Founder" }}volunteer{{ end }}">
+                <h3>{{ .title }}</h3>
+                <p><strong>{{ .company }}</strong> | <em>{{ .start_date }} – {{ .end_date }}</em> | <em>{{ .location }}</em></p>
+                {{ .description | markdownify }}
+                {{ if .achievements }}
+                <ul class="achievements-list">
+                    {{ range .achievements }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
+            {{ end }}
+        </section>
+        {{ else }}
+        <section id="experience" class="titanium-story">
+            <h2>Professional Experience</h2>
+            <p>No professional experience data available. Please check the resume.md file.</p>
+        </section>
+        {{ end }}
+
+        {{ if .Params.additional_experience }}
+        <!-- Debug: Length of additional_experience array: {{ len .Params.additional_experience }} -->
+        <section id="additional-experience" class="titanium-story">
+            <h2>Additional Experience</h2>
+            <div class="content-grid">
+                {{ range .Params.additional_experience }}
+                <div class="content-card experience-card">
+                    <h4>{{ .title }}</h4>
+                    <p><strong>{{ .company }}</strong> | <em>{{ .date }}</em></p>
+                    <p>{{ .description }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ else }}
+        <section id="additional-experience" class="titanium-story">
+            <h2>Additional Experience</h2>
+            <p>No additional experience data available.</p>
+        </section>
+        {{ end }}
+
+        {{ if or .Params.technical_skills .Params.soft_skills }}
+        <section id="skills" class="titanium-story">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                {{ if .Params.technical_skills }}
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-network-wired"></i> Networking Protocols</h3>
+                    <div class="skill-tags">
+                        {{ range .Params.technical_skills }}
+                        <div class="skill-tag">
+                            <span>{{ .name }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: {{ .level }}%;"></div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                {{ if .Params.soft_skills }}
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        {{ range .Params.soft_skills }}
+                        <div class="skill-tag">
+                            <span>{{ .name }}</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: {{ .level }}%;"></div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-robot"></i> AI & Automation Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Ansible for AI Pipelines</span>
+                        <span class="skill-tag">Custom AI Automation Scripts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{ else }}
+        <section id="skills" class="titanium-story">
+            <h2>Core Competencies</h2>
+            <p>No skills data available.</p>
+        </section>
+        {{ end }}
+
+        {{ if .Params.volunteering }}
+        <section id="volunteering" class="titanium-story">
+            <h2>Healthcare & Volunteering Experience</h2>
+            {{ range .Params.volunteering }}
+            <div class="content-section glass-card volunteer">
+                <h3>{{ .title }}</h3>
+                <p><strong>{{ .organization }}</strong> | <em>{{ .start_date }} – {{ .end_date }}</em> | <em>{{ .location }}</em></p>
+                {{ .description | markdownify }}
+            </div>
+            {{ end }}
+        </section>
+        {{ else }}
+        <section id="volunteering" class="titanium-story">
+            <h2>Healthcare & Volunteering Experience</h2>
+            <p>No volunteering data available.</p>
+        </section>
+        {{ end }}
+
+        {{ if .Params.certifications }}
+        <section id="certifications" class="titanium-story">
+            <h2>Certifications & Continuous Learning</h2>
+            {{ .Params.certifications | markdownify }}
+            <p>See "Core Competencies" for detailed technical skills in networking, automation, and cloud infrastructure.</p>
+        </section>
+        {{ else }}
+        <section id="certifications" class="titanium-story">
+            <h2>Certifications & Continuous Learning</h2>
+            <p>No certifications data available.</p>
+        </section>
+        {{ end }}
+
+        {{ if .Params.languages }}
+        <section id="languages" class="titanium-story">
+            <h2>Languages</h2>
+            <div class="content-section glass-card languages">
+                {{ .Params.languages | markdownify }}
+            </div>
+        </section>
+        {{ else }}
+        <section id="languages" class="titanium-story">
+            <h2>Languages</h2>
+            <p>No language data available.</p>
+        </section>
+        {{ end }}
+
+        <section id="contact" class="titanium-story">
+            <h2>Contact</h2>
+            <p>Reach out to discuss your next project:</p>
+            <ul>
+                <li><strong>Email</strong>: <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a></li>
+                <li><strong>Phone</strong>: <a href="tel:{{ .Params.phone }}">{{ .Params.phone }}</a></li>
+                <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/wesleysteehouwer">LinkedIn Profile</a></li>
+            </ul>
+        </section>
+
+        <div class="cta-section">
+            <h3>Current Focus</h3>
+            <p>{{ .Params.current_focus | markdownify }}</p>
+            <div class="cta-buttons">
+                <a href="mailto:{{ .Params.email }}" class="btn">Get in Touch</a>
+                <a href="https://linkedin.com/in/wesleysteehouwer" class="btn">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="sticky-cta">
+            <a href="mailto:{{ .Params.email }}" class="btn">Get in Touch</a>
+        </div>
+        {{ else }}
+        <h1>{{ .Title }}</h1>
+        {{ if .Description }}
+        <p>{{ .Description }}</p>
+        {{ end }}
+        {{ if .Date }}
+        <p>{{ .Date.Format "January 2, 2006" }}</p>
+        {{ end }}
+        {{ .Content }}
+        {{ end }}
+
+        {{ if and (eq .Type "posts") (or .PrevInSection .NextInSection) }}
+        <div class="post-navigation">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="prev-post">
+                <span>Previous</span>
+                <span>{{ .Title }}</span>
+            </a>
+            {{ end }}
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="next-post">
+                <span>Next</span>
+                <span>{{ .Title }}</span>
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </main>
 </div>
-
-<!-- Additional CSS for Resume-specific styling -->
-<style>
-/* Resume-specific enhancements to work with your custom.css */
-.header {
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    padding: 40px;
-}
-
-.logo-container {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.zen-circle {
-    width: 200px;
-    height: 200px;
-    border: 8px solid var(--titanium-orange);
-    border-radius: 50%;
-    position: relative;
-    margin: 0 auto;
-    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0.3) 100%);
-    animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 140, 0, 0.3); }
-    50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 140, 0, 0.5); }
-}
-
-.monk-silhouette {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--titanium-orange) 0%, var(--titanium-orange-dark) 100%);
-    clip-path: polygon(30% 10%, 70% 10%, 80% 30%, 75% 70%, 70% 85%, 30% 85%, 25% 70%, 20% 30%);
-    opacity: 0.9;
-}
-
-.name-title {
-    margin-top: 20px;
-}
-
-.name {
-    font-size: 3.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--titanium-orange) 0%, var(--white) 50%, var(--titanium-orange) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 10px;
-    letter-spacing: -2px;
-}
-
-.subtitle {
-    font-size: 1.4rem;
-    color: var(--medium-gray);
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-.tagline {
-    font-size: 1.1rem;
-    color: var(--titanium-orange);
-    font-style: italic;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--medium-gray);
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-    background: var(--glass-bg);
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-}
-
-/* Titanium Story Styling */
-.titanium-story {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0.05) 100%);
-    border: 2px solid rgba(255, 140, 0, 0.3);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    margin: 50px 0;
-}
-
-.titanium-story h2 {
-    color: var(--titanium-orange);
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.titanium-story p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: var(--light-gray);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Key Achievements Grid */
-.key-achievements {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 2rem 0;
-}
-
-.achievement-item {
-    background: rgba(255, 140, 0, 0.05);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    border: 1px solid rgba(255, 140, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.achievement-item:hover {
-    transform: translateY(-5px);
-}
-
-.achievement-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--titanium-orange);
-    display: block;
-    margin-bottom: 10px;
-}
-
-.achievement-text {
-    color: var(--light-gray);
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-/* Enhanced content styling */
-.content h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--titanium-orange);
-    margin: 2rem 0 1.5rem 0;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.content h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--titanium-orange), transparent);
-}
-
-.content h3 {
-    color: var(--titanium-orange);
-    font-size: 1.3rem;
-    margin: 1.5rem 0 1rem 0;
-    font-weight: 600;
-}
-
-.content h4 {
-    color: var(--white);
-    font-size: 1.1rem;
-    margin: 1rem 0 0.5rem 0;
-    font-weight: 600;
-}
-
-.content ul {
-    margin: 1rem 0;
-    padding-left: 0;
-    list-style: none;
-}
-
-.content ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    color: var(--light-gray);
-    line-height: 1.6;
-}
-
-.content ul li::before {
-    content: '▶';
-    position: absolute;
-    left: 0;
-    color: var(--titanium-orange);
-    font-weight: bold;
-}
-
-.content strong {
-    color: var(--titanium-orange);
-    font-weight: 500;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .name {
-        font-size: 2.5rem;
-    }
-    
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .zen-circle {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .monk-silhouette {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .key-achievements {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
 {{ end }}
