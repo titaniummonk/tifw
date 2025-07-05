@@ -1,0 +1,17 @@
+baseURL: "https://www.farangholdings.org/"
+languageCode: "en-us"
+title: "Farang Holdings"
+
+params:
+  author: "Farang Holdings"
+  description: "Bold investments and business support in Southern Thailand"
+  customCSS:
+    - "css/custom.css"
+  favicon: /img/logo.png
+  logo: /img/logo.png
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
