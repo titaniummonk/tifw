@@ -132,7 +132,7 @@ experience:
       - Built new DMZ on independent RIPE LIR membership, securing IPv4/IPv6 space for scalability
       - Migrated DNS and DHCP to Infoblox DDI, improving network uptime by 20%
       - Removed legacy equipment, implementing modern solutions to enhance performance by 25%
-      - Provided ongoing expertise, maintaining 99.9% infrastructure reliability
+      - Provided ongoing expertise, maintaining 99.99% infrastructure reliability
   - title: "CEO & Founder"
     company: "PureXperts"
     start_date: "01/2013"
@@ -143,7 +143,7 @@ experience:
       - Deployed high-availability Network Management System using Docker, achieving 99.99% uptime
       - Developed automation tools in Go and Python, reducing customer operational costs by 15%
       - Adopted Infrastructure as Code (IaC), enabling 50% faster deployments for clients
-      - Delivered solutions for AT&T (MPLS optimization), Deutsche Glasfaser (CGN), KPN (automation), and NTT (cloud integration)
+      - Delivered solutions for AT&T (Root Cause Analysis), Deutsche Glasfaser (2020 high scale network), KPN (datacenter move), and NTT (NOC Architect, highest level escalations between NOC and design)
 
 # Additional Experience
 additional_experience:

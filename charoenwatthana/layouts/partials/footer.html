@@ -1,3 +1,38 @@
-<footer class="footer">
-	<p>Copyright ©2025 <a href="https://www.wesleysteehouwer.com">Wesley Steehouwer</a> and Companies. All rights reserved | Do Not Copy, Reprint and/or Distribute.</p>
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>{{ .Site.Data.organization.mission }}</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/about">Our Story</a></li>
+            <li><a href="/programs">Programs</a></li>
+            <li><a href="/get-involved">Get Involved</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Programs</h3>
+          <ul>
+            {{ range .Site.Data.organization.programs }}
+              <li><a href="/programs/{{ .name | urlize }}">{{ .name }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>{{ .Site.Data.organization.location }}<br>
+          Email: {{ .Site.Data.organization.contact.email }}<br>
+          Phone: {{ .Site.Data.organization.contact.phone }}</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; {{ now.Year }} Charoen Watthana. All rights reserved.</p>
+      </div>
+    </div>
+<footer class="footer-bottom">
+	<p>Copyright &copy; 2025 <a href="https://www.wesleysteehouwer.com">Wesley Steehouwer</a> and Companies. All rights reserved | Do Not Copy, Reprint and/or Distribute.</p>
 </footer>

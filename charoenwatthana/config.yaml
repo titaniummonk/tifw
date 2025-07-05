@@ -1,9 +1,31 @@
 baseURL: "https://www.charoenwatthana.org/"
 languageCode: "en-us"
-title: "Charoen Watthana Initiative"
+title: "Charoen Watthana"
 
 params:
   description: "Charoen Watthana for a better world"
   customCSS:
     - "css/custom.css"
-  defaultTheme: "dark"
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 9 
+    - identifier: programs
+      name: Programs
+      url: /programs/
+      weight: 3
+    - identifier: get-involved
+      name: Get Involved
+      url: /get-involved/
+      weight: 4
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 5

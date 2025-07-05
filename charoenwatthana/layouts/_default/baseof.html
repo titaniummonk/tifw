@@ -2,9 +2,52 @@
 <html lang="{{ .Lang }}">
 <head>
   {{ partial "head.html" . }}
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 </head>
 <body>
-  {{ block "main" . }}{{ end }}
+  <!-- Animated background elements -->
+  <div class="bg-elements">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <div class="logo-icon">🌱</div>
+          {{ .Site.Data.organization.name }}
+        </a>
+        <nav class="nav-menu">
+          {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a>
+          {{ end }}
+          <a href="{{ .Site.Data.funding.donate_url }}" class="header-cta">Donate Now</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <!-- Site Footer -->
   {{ partial "footer.html" . }}
+
+  <!-- Header scroll effect -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.site-header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

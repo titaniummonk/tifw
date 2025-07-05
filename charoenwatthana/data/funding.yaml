@@ -1,0 +1,14 @@
+---
+goal: !!int 500000
+current: !!int 5000
+currency: "THB"
+percentage: !!int 1
+title: "Foundation Registration Progress"
+description: "Fund our Thai nonprofit registration"
+urgency_message: "No status, no donations or grants. Help us!"
+milestones:
+  - amount: !!int 500000
+    description: "Complete foundation setup"
+    status: "pending"
+donate_url: "/donate"
+get_involved_url: "/get-involved"

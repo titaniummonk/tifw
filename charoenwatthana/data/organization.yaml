@@ -1,0 +1,37 @@
+name: "Charoen Watthana"
+tagline: "Building Thailand's First 24/7 Community Care Center"
+founder: "Wesley (ฉลาม)"
+founded_year: 2025
+location: "TBD, Southern Thailand"
+mission: "To provide round-the-clock support, youth education, and public health services in Southern Thailand through comprehensive community care."
+vision: "A community where help is always available, where young people have opportunities to thrive, and where health and wellbeing are accessible to all."
+
+contact:
+  email: "contact@charoenwatthana.org"
+  phone: ""
+  address: ""
+
+social_media:
+  facebook: "https://facebook.com/charoenwatthana"
+  twitter: "https://twitter.com/charoenwatthana"
+  instagram: "https://instagram.com/charoenwatthana"
+  youtube: "https://youtube.com/charoenwatthana"
+
+programs:
+  - name: "Community Care"
+    description: "24/7 emergency support and community assistance"
+    icon: "🏥"
+  - name: "Youth Education"
+    description: "Educational programs and mentorship for young people"
+    icon: "📚"
+  - name: "Public Health"
+    description: "Health awareness and preventive care services"
+    icon: "🩺"
+
+key_features:
+  - "24/7 availability"
+  - "Multilingual support"
+  - "Emergency response"
+  - "Youth mentorship"
+  - "Health education"
+  - "Community outreach"

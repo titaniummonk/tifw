@@ -1,0 +1,245 @@
+{{ define "main" }}
+<body class="charoenwatthana">
+  <div class="bg-elements">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <div class="theme-toggle" onclick="toggleTheme()"></div>
+
+  <div class="charoenwatthana-container">
+    <!-- Urgent Funding Banner -->
+    <div class="urgent-banner fade-in">
+      <h3>🚨 Critical Milestone: Foundation Incorporation</h3>
+      <p>We need <span class="funding-goal">500,000 THB</span> to officially register as a Thai nonprofit foundation</p>
+      <div class="progress-container">
+        <div class="progress-bar" data-progress="0"></div>
+      </div>
+      <p><small>Without official status, we can't accept donations or apply for grants. Help us cross this crucial first step!</small></p>
+    </div>
+
+    <header class="charoenwatthana-header">
+      <h1 class="charoenwatthana-title">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+        <p class="charoenwatthana-subtitle">{{ . }}</p>
+      {{ end }}
+      
+      <!-- Dual CTA Strategy -->
+      <div class="cta-container">
+        <a href="#explore" class="cta-primary">Learn Our Story</a>
+        <a href="/get-involved" class="cta-secondary">Help Us Reach Our Goal</a>
+      </div>
+    </header>
+
+    <!-- Mission Highlight Section -->
+    <div class="mission-highlight fade-in">
+      <h3>Our Mission: Building Thailand's First 24/7 Community Care Center</h3>
+      <p>Founded by Wesley (ฉลาม), a road accident survivor turned community advocate, this initiative aims to provide round-the-clock support, youth education, and public health services in Southern Thailand. Every contribution brings us closer to serving those who need help most.</p>
+    </div>
+
+    <!-- Impact Statistics -->
+    <div class="impact-stats fade-in">
+      <div class="stat-card">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Care Available</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Core Programs</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Lives Impacted</span>
+      </div>
+    </div>
+
+    <section class="charoenwatthana-list" id="explore">
+      {{ range .Pages }}
+        <div class="charoenwatthana-section fade-in">
+          <h2><a href="{{ .RelPermalink }}" class="section-link">{{ .Title }}</a></h2>
+          {{ with .Params.description }}
+            <p class="section-description">{{ . | safeHTML }}</p>
+          {{ end }}
+          <div class="section-content">
+            {{ .Content }}
+          </div>
+        </div>
+      {{ end }}
+    </section>
+    </div>
+
+    <!-- Final Call to Action -->
+    <div class="cta-container fade-in" style="margin-top: 50px;">
+      <a href="/get-involved" class="cta-secondary">Join Our Mission Today</a>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced scroll animations
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Animate progress bar when it comes into view
+            if (entry.target.classList.contains('urgent-banner')) {
+              setTimeout(() => {
+                const progressBar = entry.target.querySelector('.progress-bar');
+                if (progressBar) {
+                  // You can update this percentage based on actual funding progress
+                  progressBar.style.width = '15%'; // Example: 15% funded
+                }
+              }, 500);
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Theme toggle functionality
+    function toggleTheme() {
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+      
+      toggle.classList.toggle('active');
+      
+      if (toggle.classList.contains('active')) {
+        body.style.filter = 'invert(1) hue-rotate(180deg)';
+      } else {
+        body.style.filter = 'none';
+      }
+    }
+
+    // Enhanced particle effects
+    function createParticle(x, y, color = '#4DD0E1') {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      particle.style.background = color;
+      document.body.appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 3000);
+    }
+
+    // Interactive section effects with themed colors
+    document.querySelectorAll('.charoenwatthana-section').forEach(section => {
+      section.addEventListener('mouseenter', (e) => {
+        const rect = section.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Create particles with theme colors
+        const colors = ['#4DD0E1', '#00796B', '#4CAF50'];
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            createParticle(rect.left + x, rect.top + y, colors[i % colors.length]);
+          }, i * 100);
+        }
+      });
+    });
+
+    // Smooth scrolling for all CTA buttons
+    document.querySelectorAll('.cta-primary').forEach(button => {
+      if (button.getAttribute('href') === '#explore') {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.querySelector('#explore').scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+
+    // Enhanced CTA hover effects
+    document.querySelectorAll('.cta-secondary').forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        // Create success particles around funding CTAs
+        const rect = button.getBoundingClientRect();
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            createParticle(
+              rect.left + Math.random() * rect.width, 
+              rect.top + Math.random() * rect.height, 
+              '#4CAF50'
+            );
+          }, i * 50);
+        }
+      });
+    });
+
+    // Reading progress for long content
+    function updateReadingProgress() {
+      const scrolled = window.scrollY;
+      const maxHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrolled / maxHeight) * 100;
+      
+      let progressBar = document.querySelector('.reading-progress');
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.appendChild(progressBar);
+      }
+      
+      progressBar.style.width = Math.min(progress, 100) + '%';
+    }
+
+    // Initialize all functionality
+    window.addEventListener('load', () => {
+      observeElements();
+      
+      // Add scroll listener for reading progress
+      window.addEventListener('scroll', updateReadingProgress);
+      
+      // Enhanced title animation with funding urgency
+      let urgencyFactor = 1;
+      setInterval(() => {
+        const title = document.querySelector('.charoenwatthana-title');
+        const banner = document.querySelector('.urgent-banner');
+        
+        if (title) {
+          // Increase urgency animation when banner is visible
+          if (banner && banner.getBoundingClientRect().top < window.innerHeight) {
+            urgencyFactor = 1.5;
+          } else {
+            urgencyFactor = 1;
+          }
+          
+          title.style.transform = `perspective(1000px) rotateX(${10 + Math.sin(Date.now() / 1000) * 5 * urgencyFactor}deg)`;
+        }
+      }, 50);
+      
+      // Animate statistics on load
+      setTimeout(() => {
+        document.querySelectorAll('.stat-number').forEach((stat, index) => {
+          stat.style.animation = `countUp 2s ease-out ${index * 0.2}s both`;
+        });
+      }, 1000);
+    });
+
+    // Add count-up animation for statistics
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes countUp {
+        from { 
+          opacity: 0; 
+          transform: translateY(20px) scale(0.5); 
+        }
+        to { 
+          opacity: 1; 
+          transform: translateY(0) scale(1); 
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+{{ end }}
