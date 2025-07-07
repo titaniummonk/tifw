@@ -194,7 +194,7 @@ certifications: |
   Toastmasters Competent Communicator
 
   ### Operating Systems
-  BSD (FreeBSD, OpenBSD), Linux (Debian-based distributions), Network Management Systems
+  BSD (FreeBSD, OpenBSD, NetBSD), Linux (Debian-based, Redhat-based, Slackware-based distributions), Network Management Systems
 
 # Languages
 languages: |
