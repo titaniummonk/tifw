@@ -87,5 +87,5 @@ After years of studying investment legends and living in Southeast Asia, I've id
 
 ---
 <footer>
-**Investment Disclaimer**: Only invest what you can afford to lose. All investments carry inherent risks including the potential loss of principal. The Without Chaos Club targets up to 50x returns over 20-year investment horizons, but past performance does not guarantee future results. Investors should carefully consider their risk tolerance and investment objectives before participating in any investment strategy.
+<b>Investment Disclaimer</b>: Only invest what you can afford to lose. All investments carry inherent risks including the potential loss of principal. The Without Chaos Club targets up to 50x returns over 20-year investment horizons, but past performance does not guarantee future results. Investors should carefully consider their risk tolerance and investment objectives before participating in any investment strategy.
 </footer>
