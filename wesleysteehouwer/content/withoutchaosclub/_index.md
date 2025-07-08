@@ -7,7 +7,7 @@ description: "Without Chaos Club Partnership - Revolutionary Investment Strategy
 <div class="hero">
   <h1>Without Chaos Club</h1>
   <p class="subtitle">Revolutionary Investment Partnership</p>
-  <p>A 20-year commitment to building Thailand's next investment legacy through proven methodologies and emerging market opportunities.</p>
+  <p>A 30-year commitment to building Thailand's next investment legacy through proven methodologies and emerging market opportunities.</p>
   <a href="/contact/" class="btn btn-outline">Explore Partnership</a>
 </div>
 
@@ -39,18 +39,39 @@ After years of studying investment legends and living in Southeast Asia, I've id
 <div class="content-grid">
   <div class="content-card">
     <h4>🎯 Partnership Terms</h4>
-    <p>This is a 20-year commitment that runs deeper than most business relationships. Partners must be prepared for the long journey ahead with meaningful investment minimums to ensure we're working with sophisticated investors.</p>
+    <p>This is a 30-year commitment that runs deeper than most business relationships. Partners must be prepared for the long journey ahead with meaningful investment minimums across multiple membership classes designed for sophisticated investors.</p>
   </div>
   
   <div class="content-card">
     <h4>📈 Return Targets</h4>
-    <p>I'm targeting up to 50x returns over the full 20-year period. Your investment could theoretically grow 50-fold, with a personally guaranteed 15% annual return as our baseline. These are ambitious but achievable targets.</p>
+    <p>I'm targeting superior long-term capital appreciation through concentrated investments in undervalued securities, with a personally guaranteed 15% annual hurdle rate as our baseline. These are ambitious but achievable targets through disciplined value investing.</p>
   </div>
   
   <div class="content-card">
     <h4>🌏 Evolution Structure</h4>
-    <p>Scottish General Partnership with joinder agreements for privacy, evolving to Irish PLC. Partners can convert to stocks or receive payout at transition. Multiple global vehicles as opportunities arise.</p>
+    <p>Scottish General Partnership with joinder agreements for privacy, evolving to Irish PLC after 15+ years. Standard class partners (Alpha, Beta, Delta) convert to stocks; Premium classes (Zeta, Xi, Omega) and Gamma receive cash payouts.</p>
   </div>
+</div>
+
+<div class="content-section glass-card">
+  <h2 class="section-title">Membership Classes</h2>
+  
+  ### Standard Membership Classes
+  - **Alpha Class**: £50,000 / $60,000 / €55,000 minimum (10-year lock-up)
+  - **Beta Class**: £25,000 / $30,000 / €27,500 minimum (5-year lock-up)
+  - **Delta Class**: £15,000 / $18,000 / €16,500 minimum (10-year lock-up)
+  - **Gamma Class**: £7,500 / $9,000 / €8,250 minimum (10-year lock-up)
+  
+  ### Premium Membership Classes
+  Available only to existing Alpha/Beta class partners:
+  - **Zeta Class**: £100,000 / $120,000 / €110,000 minimum (5-year lock-up)
+  - **Xi Class**: £50,000 / $60,000 / €55,000 minimum (5-year lock-up)
+  - **Omega Class**: £30,000 / $36,000 / €33,000 minimum (5-year lock-up)
+  
+  ### Performance Fee Structure
+  - **Standard Classes**: 25% of net profits exceeding 15% annual hurdle
+  - **Premium Classes**: 15% of net profits exceeding 15% annual hurdle
+  - **No Management Fees**: Full alignment with partner interests
 </div>
 
 {{< titanium-story >}}
@@ -61,6 +82,8 @@ After years of studying investment legends and living in Southeast Asia, I've id
 **Regular Updates**: Detailed letters every 6-12 months providing transparent communication about our progress and opportunities.
 
 **Legacy Building**: This venture will succeed Farang Holdings as a social enterprise designed for responsible wealth compounding, inspired by Brad Jacobs' relentless pursuit of value creation.
+
+**Dynamic Capacity Management**: Partnership capacity will be managed to optimize returns, with potential expansion during superior performance periods and strategic focus during market challenges.
 {{< /titanium-story >}}
 
 <div class="content-section glass-card">
@@ -68,11 +91,27 @@ After years of studying investment legends and living in Southeast Asia, I've id
   
   This venture represents more than an investment opportunity. It's about creating lasting wealth through vibrant, growing investments that deliver tangible results. Not through distant retirement plans, but through active participation in global economic transformation.
 
-  The Scottish General Partnership structure provides maximum privacy and flexibility, with limited partners joining through joinder agreements. The ultimate goal is evolution to a joint stock company PLC in Ireland, where partners can choose to convert their participation to stocks or receive a payout at that transition point. This evolutionary approach allows us to operate across multiple jurisdictions while maintaining the sophisticated yet accessible structure that qualified partners expect.
+  The Scottish General Partnership structure provides maximum privacy and flexibility, with limited partners joining through joinder agreements. Each partner's information remains confidential through individual documentation rather than collective schedules.
 
+  ### Partnership Evolution Timeline
+  
+  **Years 1-15**: Core partnership development and wealth creation
+  **Year 15+**: Optional conversion to Irish PLC structure
+  **Conversion Benefits**: 
+  - Alpha, Beta, Delta classes convert to corresponding PLC shares
+  - Gamma, Zeta, Xi, Omega classes receive cash payouts
+  - All partners may elect cash payout instead of conversion
+
+  ### Capacity Management
+  
+  The partnership employs dynamic capacity management to optimize returns:
+  - **Performance-Based Expansion**: Superior returns may trigger capacity increases
+  - **Strategic Focus**: Market conditions may warrant capacity restrictions
+  - **Regulatory Compliance**: Delta class limited to 66 partners, Gamma to 33 partners
+  
   ### Next Steps
 
-  If you're ready to commit to this 20-year partnership and believe in the potential of Southeast Asian markets, I invite you to begin the conversation. This is the start of our accountability journey together.
+  If you're ready to commit to this 30-year partnership and believe in the potential of Southeast Asian markets, I invite you to begin the conversation. This is the start of our accountability journey together.
 
   **Wesley Steehouwer**  
   *The Titanium Monk*  
@@ -87,5 +126,5 @@ After years of studying investment legends and living in Southeast Asia, I've id
 
 ---
 <footer>
-<b>Investment Disclaimer</b>: Only invest what you can afford to lose. All investments carry inherent risks including the potential loss of principal. The Without Chaos Club targets up to 50x returns over 20-year investment horizons, but past performance does not guarantee future results. Investors should carefully consider their risk tolerance and investment objectives before participating in any investment strategy.
+<b>Investment Disclaimer</b>: Only invest what you can afford to lose. All investments carry inherent risks including the potential loss of principal. The Without Chaos Club targets superior long-term capital appreciation through concentrated investments in undervalued securities, but past performance does not guarantee future results. Investors should carefully consider their risk tolerance and investment objectives before participating in any investment strategy.
 </footer>
