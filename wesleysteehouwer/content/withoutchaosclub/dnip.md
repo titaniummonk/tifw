@@ -13,14 +13,14 @@ description: "Legal Framework for the Without Chaos Club Investment Partnership"
 {{< titanium-story >}}
 ## Partnership Overview
 
-The Digital Nomad Investment Partnership, led by Wesley Steehouwer (The Titanium Monk), is a Scottish General Partnership formed under the Partnership Act 1890 and Limited Partnerships Act 1907. This agreement outlines the structure, terms, and objectives for a disciplined, long-term investment strategy targeting superior capital appreciation through concentrated investments in undervalued securities, with particular expertise in Southeast Asian markets.
+The Digital Nomad Investment Partnership, led by Wesley Steehouwer, is a Scottish General Partnership formed under the Partnership Act 1890 and Limited Partnerships Act 1907. This agreement outlines the structure, terms, and objectives for a disciplined, long-term investment strategy targeting superior capital appreciation through concentrated investments in undervalued securities, with particular expertise in Southeast Asian markets.
 {{< /titanium-story >}}
 
 <div class="content-section glass-card">
   <h2 class="section-title">Partnership Structure</h2>
 
   **Parties**  
-  - **General Partner**: Wesley Steehouwer (The Titanium Monk)  
+  - **General Partner**: Wesley Steehouwer   
   - **Limited Partners**: As defined through individual Joinder Agreements  
   - **Governing Law**: Partnership Act 1890 (Scotland) and Limited Partnerships Act 1907  
   - **Registered Office**: [To be inserted upon registration]  
@@ -201,53 +201,8 @@ Partners may contribute in GBP, USD, or EUR. All contributions convert to GBP eq
 
 <div class="cta-section">
   <h3>Join the Digital Nomad Investment Partnership</h3>
-  <p>Ready to commit to a 30-year journey of wealth creation through disciplined investing? Review the Joinder Agreement template below and start the conversation to become a Limited Partner.</p>
+  <p>Ready to commit to a 30-year journey of wealth creation through disciplined investing? Contact us to begin the partnership discussion and receive the complete documentation package including the Joinder Agreement.</p>
   <a href="/contact/" class="btn">Begin Partnership Discussion</a>
-</div>
-
-<div class="content-section glass-card">
-  <h2 class="section-title">Joinder Agreement Template</h2>
-
-  **JOINDER TO DIGITAL NOMAD INVESTMENT PARTNERSHIP AGREEMENT**
-
-  The undersigned ("**New Limited Partner**") hereby:  
-
-  1. **Acknowledges** receipt and review of the Digital Nomad Investment Partnership Agreement;  
-  2. **Agrees** to be bound by all terms and conditions as a Limited Partner;  
-  3. **Commits** to contribute £/$/€[AMOUNT] within [TIME PERIOD] under [MEMBERSHIP CLASS] class;  
-  4. **Represents** they are a sophisticated investor with sufficient knowledge and experience;  
-  5. **Confirms** the investment suits their financial circumstances and risk tolerance;
-  6. **Understands** the lock-up periods and performance fee structure applicable to their class;
-  7. **Acknowledges** the Partnership's 30-year term and evolution to PLC structure.
-
-  **NEW LIMITED PARTNER:**  
-  Name: _________________________  
-  Signature: _____________________  
-  Date: _________________________  
-  Address: ______________________  
-                ______________________  
-                ______________________  
-  Email: ________________________
-  Phone: _______________________
-  
-  **MEMBERSHIP CLASS SELECTION:**
-  ☐ Alpha Class (£50,000 / $60,000 / €55,000 minimum)
-  ☐ Beta Class (£25,000 / $30,000 / €27,500 minimum)
-  ☐ Delta Class (£15,000 / $18,000 / €16,500 minimum)
-  ☐ Gamma Class (£7,500 / $9,000 / €8,250 minimum)
-  ☐ Zeta Class (£100,000 / $120,000 / €110,000 minimum - Alpha/Beta LPs only)
-  ☐ Xi Class (£50,000 / $60,000 / €55,000 minimum - Alpha/Beta LPs only)
-  ☐ Omega Class (£30,000 / $36,000 / €33,000 minimum - Alpha/Beta LPs only)
-
-  **CONTRIBUTION CURRENCY:**
-  ☐ GBP  ☐ USD  ☐ EUR
-  
-  **CONTRIBUTION AMOUNT:** _________________
-
-  **ACCEPTED BY GENERAL PARTNER:**  
-  Wesley Steehouwer  
-  Signature: _____________________  
-  Date: _________________________  
 </div>
 
 ---
