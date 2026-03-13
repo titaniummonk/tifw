@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wesley Steehouwer²</title>
+  <meta name="description" content="Security Architect | Privacy Engineer | Fractional CISO/DPO/CTO"/>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --gray: #94a3b8;
+      --border: #334155;
+    }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --accent: #3b82f6;
+      --gray: #475569;
+      --border: #e2e8f0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: all 0.4s ease;
+    }
+    header {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+      background: linear-gradient(to bottom, var(--bg), rgba(0,0,0,0.2));
+    }
+    .logo {
+      width: 140px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.5));
+      transition: filter 0.4s ease;
+    }
+    [data-theme="dark"] .logo {
+      filter: invert(0.92) brightness(1.35) contrast(1.15) drop-shadow(0 6px 16px rgba(255,255,255,0.2));
+    }
+    h1 {
+      margin: 0;
+      font-size: 3.4rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--accent);
+    }
+    .tag {
+      font-size: 1.45rem;
+      opacity: 0.88;
+      margin: 0.8rem 0 1.5rem;
+      font-weight: 500;
+    }
+    .contact {
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .contact a:hover { color: #ffffff; }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+    section {
+      margin: 4.5rem 0;
+    }
+    h2 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.4rem;
+    }
+    p, ul {
+      font-size: 1.12rem;
+      margin: 0.9rem 0;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin: 0.7rem 0;
+      position: relative;
+      padding-left: 1.6rem;
+    }
+    li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .vendors {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--gray);
+      margin: 3rem 0 5rem;
+      letter-spacing: 0.5px;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 100;
+      transition: background 0.3s;
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.18); }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .tag { font-size: 1.3rem; }
+      main { padding: 0 1rem; }
+    }
+    @media print {
+      header, .theme-toggle, .vendors, footer { display: none; }
+      body { background: white; color: black; }
+      h2 { color: black; border-bottom: 1px solid black; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">Light Mode</button>
+
+  <header>
+    <img src="logo.png" alt="Wesley Steehouwer² Logo" class="logo">
+    <h1>WESLEY STEEHOUWER²</h1>
+    <p class="tag">Security Architect · Privacy Engineer · Zero Trust Pioneer · Fractional CISO / DPO / CTO</p>
+    <p class="contact">
+      Thailand · 
+      <a href="https://t.me/wesleysteehouwer" target="_blank">Telegram @wesleysteehouwer</a> · 
+      wesleysteehouwer.com
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p>20+ years building secure carrier-grade infrastructure across datacenters, healthcare EHR, telecom, and enterprise environments in America, Europe and Southeast Asia.</p>
+      <ul>
+        <li>Zero Trust pioneer — Netherlands 2010 (pre-NIST by a decade)</li>
+        <li>RFC 8092 contributor — BGP Large Communities (IETF 2017)</li>
+        <li>Multi-site ISO 27001 leadership — dual certification achieved</li>
+        <li>Deep PDPA, GDPR mapping & privacy-by-design expertise</li>
+      </ul>
+      <p>Fractional CISO/DPO/CTO for boutique hospitality, healthcare & tech operators in Southeast Asia.</p>
+    </section>
+
+    <section>
+      <h2>Core Expertise</h2>
+      <ul>
+        <li>Network & Security Architecture — Zero Trust, BGP (RFC 8092), micro-segmentation, dual-vendor NGFW, DMZ, carrier-grade ops</li>
+        <li>Privacy Engineering — ISO 29100, pseudonymisation, EHR privacy, GDPR-aligned design, data minimization</li>
+        <li>Governance & Compliance — ISO 27001 multi-site, ISO 27017/18, PDPA Thailand/Vietnam/Malaysia, GDPR readiness</li>
+        <li>Threat & Response — Critical infrastructure analysis, rapid incident handling, post-breach forensics</li>
+        <li>Infrastructure & Automation — Tier 3 datacenter, Docker/K8s, Ansible, IaC, Python/Go/Perl/Bash</li>
+        <li>Leadership — Fractional CISO/DPO/CTO, solution architecture, cross-border advisory</li>
+      </ul>
+    </section>
+
+    <div class="vendors">
+      Key Vendors Experience: Brocade · Cisco · Extreme · Fortinet · Infoblox · Juniper · Nokia · Palo Alto
+    </div>
+  </main>
+
+  <footer>
+  Copyright ©1986-2026 Wesley Steehouwer and Companies. All rights reserved | Do Not Copy, Reprint and/or Distribute.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+  </script>
+
+</body>
+</html>
