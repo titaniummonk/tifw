@@ -2,205 +2,478 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wesley Steehouwer²</title>
-  <meta name="description" content="Security Architect | Privacy Engineer | Fractional CISO/DPO/CTO"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wesley Steehouwer&#178;</title>
+  <meta name="description" content="Security Architect · Business Builder · Fractional CISO/DPO/CTO" />
+  <meta property="og:title" content="Wesley Steehouwer²" />
+  <meta property="og:description" content="Security Architect by day. Business builder by night. Based in Thailand." />
+  <meta property="og:image" content="https://wesleysteehouwer.com/logo.png" />
+  <meta property="og:url" content="https://wesleysteehouwer.com" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0f172a;
-      --text: #e2e8f0;
+      --ink: #e2e8f0;
+      --mid: #94a3b8;
       --accent: #60a5fa;
-      --gray: #94a3b8;
-      --border: #334155;
+      --rule: #1e293b;
     }
+
     [data-theme="light"] {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --accent: #3b82f6;
-      --gray: #475569;
-      --border: #e2e8f0;
+      --bg: #f5f2eb;
+      --ink: #1a1814;
+      --mid: #6b6560;
+      --accent: #c0392b;
+      --rule: #d4cfc6;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, sans-serif;
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: all 0.4s ease;
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
     }
-    header {
-      text-align: center;
-      padding: 5rem 1rem 3rem;
-      background: linear-gradient(to bottom, var(--bg), rgba(0,0,0,0.2));
-    }
-    .logo {
-      width: 140px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.5));
-      transition: filter 0.4s ease;
-    }
-    [data-theme="dark"] .logo {
-      filter: invert(0.92) brightness(1.35) contrast(1.15) drop-shadow(0 6px 16px rgba(255,255,255,0.2));
-    }
-    h1 {
-      margin: 0;
-      font-size: 3.4rem;
-      font-weight: 900;
-      letter-spacing: -2px;
-      color: var(--accent);
-    }
-    .tag {
-      font-size: 1.45rem;
-      opacity: 0.88;
-      margin: 0.8rem 0 1.5rem;
-      font-weight: 500;
-    }
-    .contact {
-      font-size: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .contact a:hover { color: #ffffff; }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem 4rem;
-    }
-    section {
-      margin: 4.5rem 0;
-    }
-    h2 {
-      color: var(--accent);
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.4rem;
-    }
-    p, ul {
-      font-size: 1.12rem;
-      margin: 0.9rem 0;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin: 0.7rem 0;
-      position: relative;
-      padding-left: 1.6rem;
-    }
-    li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
-    .vendors {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--gray);
-      margin: 3rem 0 5rem;
-      letter-spacing: 0.5px;
-    }
+
+    /* ── TOGGLE ── */
     .theme-toggle {
       position: fixed;
       top: 1rem;
-      right: 1rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
+      left: 1rem;
       z-index: 100;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .toggle-track {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--mid);
+      position: relative;
       transition: background 0.3s;
+      flex-shrink: 0;
     }
-    .theme-toggle:hover { background: rgba(255,255,255,0.18); }
+
+    /* Moon icon — left side, visible in dark mode */
+    .toggle-track::before {
+      content: '🌙';
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      line-height: 1;
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+
+    /* Sun icon — right side, visible in light mode */
+    .toggle-track::after {
+      content: '☀️';
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      line-height: 1;
+      transition: opacity 0.3s;
+      opacity: 0.35;
+    }
+
+    [data-theme="light"] .toggle-track::before { opacity: 0.35; }
+    [data-theme="light"] .toggle-track::after  { opacity: 1; }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      transition: transform 0.3s;
+      z-index: 1;
+    }
+
+    [data-theme="light"] .toggle-thumb {
+      transform: translateX(20px);
+    }
+
+    .theme-toggle:hover .toggle-track { background: var(--accent); }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3.5rem 4rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+
+    .logo-block img {
+      width: 64px;
+      height: auto;
+      transition: filter 0.4s ease;
+    }
+
+    [data-theme="dark"] .logo-block img {
+      filter: invert(0.92) brightness(1.35) contrast(1.15) drop-shadow(0 4px 12px rgba(255,255,255,0.15));
+    }
+
+    [data-theme="light"] .logo-block img {
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    }
+
+    .logo-text h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .logo-text h1 sup {
+      font-size: 0.5em;
+      color: var(--accent);
+      vertical-align: super;
+    }
+
+    .logo-text .tagline {
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-meta {
+      font-size: 0.72rem;
+      color: var(--mid);
+      text-align: right;
+      line-height: 2;
+    }
+
+    .header-meta a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .header-meta a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 4rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── DAY / NIGHT SPLIT ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .shift-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .shift-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .day-block .shift-label { color: #b5832a; }
+    .day-block .shift-label::before { background: #b5832a; }
+
+    .night-block .shift-label { color: var(--accent); }
+    .night-block .shift-label::before { background: var(--accent); }
+
+    .shift-body {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+      line-height: 1.75;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .shift-body em {
+      font-style: italic;
+      color: var(--mid);
+    }
+
+    /* ── CREDENTIALS STRIP ── */
+    .creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .cred-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .cred-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── EXPERTISE ── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .expertise-item .e-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .expertise-item .e-body {
+      font-size: 0.78rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── VENDORS ── */
+    .vendor-list {
+      font-size: 0.7rem;
+      color: var(--mid);
+      letter-spacing: 0.05em;
+      margin-top: 2rem;
+    }
+
+    /* ── PARADOX ── */
+    .paradox-text p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    .paradox-text .yt-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .paradox-text .yt-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── FOOTER ── */
     footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--gray);
-      font-size: 0.95rem;
-      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      font-size: 0.65rem;
+      color: var(--mid);
+      letter-spacing: 0.08em;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-    @media (max-width: 768px) {
-      h1 { font-size: 2.8rem; }
-      .tag { font-size: 1.3rem; }
-      main { padding: 0 1rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      header, main, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .split { grid-template-columns: 1fr; gap: 2rem; }
+      .header-meta { text-align: left; }
+      .logo-block { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header { animation: fadeUp 0.5s ease both; }
+    section:nth-child(1) { animation: fadeUp 0.5s ease 0.07s both; }
+    section:nth-child(2) { animation: fadeUp 0.5s ease 0.14s both; }
+    section:nth-child(3) { animation: fadeUp 0.5s ease 0.21s both; }
+
     @media print {
-      header, .theme-toggle, .vendors, footer { display: none; }
+      .theme-toggle { display: none; }
       body { background: white; color: black; }
-      h2 { color: black; border-bottom: 1px solid black; }
     }
   </style>
 </head>
 <body>
 
-  <button class="theme-toggle" onclick="toggleTheme()">Light Mode</button>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+  </button>
 
   <header>
-    <img src="logo.png" alt="Wesley Steehouwer² Logo" class="logo">
-    <h1>WESLEY STEEHOUWER²</h1>
-    <p class="tag">Security Architect · Privacy Engineer · Zero Trust Pioneer · Fractional CISO / DPO / CTO</p>
-    <p class="contact">
-      Thailand · 
-      <a href="https://t.me/wesleysteehouwer" target="_blank">Telegram @wesleysteehouwer</a> · 
+    <div class="logo-block">
+      <img src="logo.png" alt="Wesley Steehouwer² Logo" />
+      <div class="logo-text">
+        <h1>Wesley Steehouwer<sup>2</sup></h1>
+        <p class="tagline">Security Architect · Business Builder · Thailand</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <a href="https://t.me/wesleysteehouwer" target="_blank" rel="noopener">Telegram</a><br />
+      <a href="https://www.youtube.com/@wesleysteehouwer" target="_blank" rel="noopener">YouTube</a><br />
       wesleysteehouwer.com
-    </p>
+    </div>
   </header>
 
   <main>
+
+    <!-- DAY / NIGHT -->
     <section>
-      <h2>Summary</h2>
-      <p>20+ years building secure carrier-grade infrastructure across datacenters, healthcare EHR, telecom, and enterprise environments in America, Europe and Southeast Asia.</p>
-      <ul>
-        <li>Zero Trust pioneer — Netherlands 2010 (pre-NIST by a decade)</li>
-        <li>RFC 8092 contributor — BGP Large Communities (IETF 2017)</li>
-        <li>Multi-site ISO 27001 leadership — dual certification achieved</li>
-        <li>Deep PDPA, GDPR mapping & privacy-by-design expertise</li>
-      </ul>
-      <p>Fractional CISO/DPO/CTO for boutique hospitality, healthcare & tech operators in Southeast Asia.</p>
+      <div class="split">
+
+        <div class="day-block">
+          <div class="shift-label">By day</div>
+          <div class="shift-body">
+            20+ years securing carrier-grade infrastructure across healthcare, telecom, and enterprise in the Americas, Europe, and Southeast Asia.<br /><br />
+            Zero Trust architect since 2010. <em>Before NIST made it a slideshow.</em> RFC 8092 contributor. Trusted as fractional CISO/DPO/CTO where the margin for error is zero.
+          </div>
+          <div class="creds">
+            <span class="cred-tag">Zero Trust</span>
+            <span class="cred-tag">RFC 8092</span>
+            <span class="cred-tag">ISO 27001</span>
+            <span class="cred-tag">OT/ICS</span>
+            <span class="cred-tag">GDPR · PDPA</span>
+            <span class="cred-tag">Fractional CISO</span>
+          </div>
+        </div>
+
+        <div class="night-block">
+          <div class="shift-label">By night</div>
+          <div class="shift-body">
+            One career was never going to be enough.<br /><br />
+            Building businesses, asking uncomfortable questions. The attack surface of a market and the attack surface of a network are not so different.<br /><br />
+            <em>Both reward the same instincts.</em>
+          </div>
+        </div>
+
+      </div>
     </section>
 
+    <!-- EXPERTISE -->
     <section>
-      <h2>Core Expertise</h2>
-      <ul>
-        <li>Network & Security Architecture — Zero Trust, BGP (RFC 8092), micro-segmentation, dual-vendor NGFW, DMZ, carrier-grade ops</li>
-        <li>Privacy Engineering — ISO 29100, pseudonymisation, EHR privacy, GDPR-aligned design, data minimization</li>
-        <li>Governance & Compliance — ISO 27001 multi-site, ISO 27017/18, PDPA Thailand/Vietnam/Malaysia, GDPR readiness</li>
-        <li>Threat & Response — Critical infrastructure analysis, rapid incident handling, post-breach forensics</li>
-        <li>Infrastructure & Automation — Tier 3 datacenter, Docker/K8s, Ansible, IaC, Python/Go/Perl/Bash</li>
-        <li>Leadership — Fractional CISO/DPO/CTO, solution architecture, cross-border advisory</li>
-      </ul>
+      <p class="section-label">Core Expertise</p>
+      <div class="expertise-grid">
+        <div class="expertise-item">
+          <div class="e-title">Network &amp; Security Architecture</div>
+          <div class="e-body">Zero Trust, BGP (RFC 8092), micro-segmentation, dual-vendor NGFW, carrier-grade operations</div>
+        </div>
+        <div class="expertise-item">
+          <div class="e-title">Privacy Engineering</div>
+          <div class="e-body">ISO 29100, pseudonymisation, EHR privacy, GDPR-aligned design, data minimization</div>
+        </div>
+        <div class="expertise-item">
+          <div class="e-title">Governance &amp; Compliance</div>
+          <div class="e-body">ISO 27001 multi-site, ISO 27017/18, PDPA Thailand/Vietnam/Malaysia, GDPR readiness</div>
+        </div>
+        <div class="expertise-item">
+          <div class="e-title">OT / ICS Security</div>
+          <div class="e-body">Critical infrastructure, factory network segmentation, PLC environments, threat intelligence</div>
+        </div>
+        <div class="expertise-item">
+          <div class="e-title">Threat Intelligence &amp; Response</div>
+          <div class="e-body">Nation-state analysis (NCSC Netherlands, Stuxnet era), critical infrastructure IR, post-breach forensics</div>
+        </div>
+        <div class="expertise-item">
+          <div class="e-title">Leadership &amp; Advisory</div>
+          <div class="e-body">Board-level counsel, cross-border regulatory navigation, executive coaching for security leaders and founders</div>
+        </div>
+      </div>
+      <p class="vendor-list">Hands-on with: Brocade · Cisco · Extreme · Fortinet · Infoblox · Juniper · Nokia · Palo Alto</p>
     </section>
 
-    <div class="vendors">
-      Key Vendors Experience: Brocade · Cisco · Extreme · Fortinet · Infoblox · Juniper · Nokia · Palo Alto
-    </div>
+    <!-- THE ULTIMATE PARADOX -->
+    <section>
+      <p class="section-label">The Ultimate Paradox</p>
+      <div class="paradox-text">
+        <p>The things you believe will set you free, won't.</p>
+        <a class="yt-link" href="https://www.youtube.com/@wesleysteehouwer" target="_blank" rel="noopener">
+          Watch on YouTube →
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-  Copyright ©1986-2026 Wesley Steehouwer and Companies. All rights reserved | Do Not Copy, Reprint and/or Distribute.
+    <span>©1986–2026 Wesley Steehouwer and Companies. All rights reserved.</span>
+    <span>Do not copy, reprint, or distribute.</span>
   </footer>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
     }
   </script>
 
